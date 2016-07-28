@@ -1,34 +1,40 @@
 <div class="card-container">
-  <md-card x-large class="sample-content">Your Content Here</md-card>
-  <md-card>
-    For hot module reloading run
-    <pre>npm run start:hmr</pre>
-  </md-card>
-  <md-card>
-    <md-card-title>Local State</md-card-title>
-    <md-card-content>
+    <div *ngFor="let stamp of stampSheet.sheet">
+      <md-card *ngIf="stamp.stamped">
+        {{stamp.code}}
+      </md-card>
+    </div>
 
-      <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
+  <!--<md-card x-large class="sample-content">Your Content Here</md-card>-->
+  <!--<md-card>-->
+    <!--For hot module reloading run-->
+    <!--<pre>npm run start:hmr</pre>-->
+  <!--</md-card>-->
+  <!--<md-card>-->
+    <!--<md-card-title>Local State</md-card-title>-->
+    <!--<md-card-content>-->
 
-        <md-input
-          placeholder="Submit Local State to App State"
-          [value]="localState.value"
-          (input)="localState.value = $event.target.value"
-          autofocus>
-        </md-input>
+      <!--<form (ngSubmit)="submitState(localState.value)" autocomplete="off">-->
 
-        <button md-raised-button color="primary">Submit Value</button>
-      </form>
-      <!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
-      -->
+        <!--<md-input-->
+          <!--placeholder="Submit Local State to App State"-->
+          <!--[value]="localState.value"-->
+          <!--(input)="localState.value = $event.target.value"-->
+          <!--autofocus>-->
+        <!--</md-input>-->
 
-      <pre>this.localState = {{ localState | json }}</pre>
+        <!--<button md-raised-button color="primary">Submit Value</button>-->
+      <!--</form>-->
+      <!--&lt;!&ndash;-->
+        <!--<input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>-->
+        <!--Rather than wiring up two-way data-binding ourselves with [value] and (input)-->
+        <!--we can use Angular's [(ngModel)] syntax-->
+        <!--<input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>-->
+      <!--&ndash;&gt;-->
 
-    </md-card-content>
-  </md-card>
+      <!--<pre>this.localState = {{ localState | json }}</pre>-->
+
+    <!--</md-card-content>-->
+  <!--</md-card>-->
 
 </div>

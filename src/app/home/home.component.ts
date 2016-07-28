@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
+import {ActivatedRoute} from '@angular/router'
 import { AppState } from '../app.service';
+import { StampSheet} from '../app.stamp.service'
 import { Title } from './title';
 import { XLarge } from './x-large';
 
@@ -29,13 +30,20 @@ export class Home {
   // Set our default values
   localState = { value: '' };
   // TypeScript public modifiers
-  constructor(public appState: AppState, public title: Title) {
+  constructor(public appState: AppState, public route: ActivatedRoute, public  stampSheet: StampSheet) {
 
   }
 
   ngOnInit() {
     console.log('hello `Home` component');
     // this.title.getData().subscribe(data => this.data = data);
+    this.route
+      .params
+      .subscribe(params => {
+        console.log(params['id'])
+        let id = params['id'];
+        this.stampSheet.stamp(id);
+      })
   }
 
   submitState(value) {

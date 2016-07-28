@@ -20,6 +20,9 @@ import '@angularclass/request-idle-callback';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+// store.js
+import 'store.js/store'
+
 if ('production' === ENV) {
   // Production
 
